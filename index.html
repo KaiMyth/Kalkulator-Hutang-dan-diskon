@@ -175,15 +175,8 @@ function calcLoan(){
   document.getElementById("loanResult").innerText =
     "Cicilan per bulan: " + monthly.toFixed(2);
 }
-</script>
 
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
-}
-</script>
-
-function calcDiscount(){
+  function calcDiscount(){
   let price = parseFloat(document.getElementById("price").value);
   let disc = parseFloat(document.getElementById("discount").value);
 
@@ -193,7 +186,16 @@ function calcDiscount(){
 
   document.getElementById("discountResult").innerText =
     "Harga setelah diskon: " + final.toFixed(2);
+  }
+  addHistory("Diskon: " + price + " - " + disc + "% = " + final);
+  
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
 }
+</script>
 
 </body>
 </html>
