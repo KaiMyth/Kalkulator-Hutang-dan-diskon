@@ -101,6 +101,14 @@ button {
 <p id="loanResult"></p>
 </div>
 
+  <h3>Kalkulator Diskon</h3>
+<div class="calc">
+  <input type="number" id="price" placeholder="Harga">
+  <input type="number" id="discount" placeholder="Diskon (%)">
+  <button onclick="calcDiscount()">Hitung</button>
+  <p id="discountResult"></p>
+</div>
+
 <h3>History</h3>
 <div class="calc history" id="history"></div>
 
@@ -174,6 +182,18 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
 </script>
+
+function calcDiscount(){
+  let price = parseFloat(document.getElementById("price").value);
+  let disc = parseFloat(document.getElementById("discount").value);
+
+  if(!price || !disc) return;
+
+  let final = price - (price * disc / 100);
+
+  document.getElementById("discountResult").innerText =
+    "Harga setelah diskon: " + final.toFixed(2);
+}
 
 </body>
 </html>
